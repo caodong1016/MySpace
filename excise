@@ -1,0 +1,43 @@
+package s001;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+/*
+ * 判定输入的整数是奇数还是偶数
+ * 未解决问题： 重复输入；
+ * 输入非整数型是提供错误提示；
+ */
+public class ParityCheck {
+	
+	public static void main(String [] args) {
+		Parity p = new Parity();
+		p.set();
+	}
+}
+	 class Parity{
+		boolean run = true ;
+		void set(){
+		//创建一个输入类
+			Scanner s = new Scanner(System.in);
+			System.out.println("请输入一个整数");
+			
+			while (run) try{
+				//读取输入
+				Integer l = s.nextInt();
+				//三元运算检查奇偶；
+				String check = (l%2 == 0) ? "这是一个偶数" : "这是一个奇数";
+				//打印结果
+				System.out.println(check);
+				run = false;
+				Parity r1 = new Parity();
+				r1.set();
+			}
+			catch (InputMismatchException e) {
+				System.out.println("你的输入有误");
+				Parity r = new Parity();
+				r.set();
+			}
+		 }
+	  }
+	  
+	  
